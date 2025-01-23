@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
             UserModel savedUser = userRepository.save(userModel);
             return new GetUserDTO(savedUser);
         } catch (Exception e) {
-            throw new GenericException("something went wrong");
+            throw new GenericException(e.getMessage());
         }
     }
 
@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
         try {
             return userRepository.save(user);
         } catch (Exception e) {
-            throw new GenericException("something went wrong");
+            throw new GenericException(e.getMessage());
         }
     }
 
@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService {
         try {
             return userRepository.findAll();
         } catch (Exception e) {
-            throw new GenericException("something went wrong");
+            throw new GenericException(e.getMessage());
         }
     }
 
@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
         try {
             return new GetUserDTO(getById(id));
         } catch (Exception e) {
-            throw new GenericException("something went wrong");
+            throw new GenericException(e.getMessage());
         }
     }
 
@@ -71,7 +71,7 @@ public class UserServiceImpl implements UserService {
             userModel = userRepository.save(userModel);
             return new GetUserDTO(userModel);
         } catch (Exception e) {
-            throw new GenericException("something went wrong");
+            throw new GenericException(e.getMessage());
         }
     }
 
@@ -80,7 +80,7 @@ public class UserServiceImpl implements UserService {
         try {
             userRepository.deleteById(id);
         } catch (Exception e) {
-            throw new GenericException("something went wrong");
+            throw new GenericException(e.getMessage());
         }
     }
 }

@@ -27,6 +27,12 @@ public class UserController {
         return new ResponseEntity<>(userDTOS, HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<GetUserDTO> getOneDto(@PathVariable Long id) {
+        GetUserDTO userDTOS = userService.getDTOById(id);
+        return new ResponseEntity<>(userDTOS, HttpStatus.OK);
+    }
+
     @PostMapping("/")
     public ResponseEntity<GetUserDTO> create(@RequestBody PostUserDTO user){
         if (user.username() == null || user.email() == null || user.password() == null) {
